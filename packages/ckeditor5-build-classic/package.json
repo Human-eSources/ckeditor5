@@ -1,5 +1,5 @@
 {
-  "name": "@humanesources.com/ckeditor5-build-classic",
+  "name": "@human-esources/ckeditor5-build-classic",
   "version": "27.0.0",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
@@ -25,8 +25,7 @@
     "build"
   ],
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-adapter-ckfinder": "^27.0.0",
@@ -75,11 +74,11 @@
   "bugs": "https://github.com/ckeditor/ckeditor5/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5.git",
+    "url": "https://github.com/human-esources/ckeditor5.git",
     "directory": "packages/ckeditor5-build-classic"
   },
   "scripts": {
     "build": "webpack --mode production",
-    "preversion": "npm run build"
+    "preversion": "yarn build"
   }
 }
