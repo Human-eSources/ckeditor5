@@ -12,11 +12,16 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
-import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
@@ -28,8 +33,9 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+import Mathematics from 'ckeditor5-math/src/math';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -38,19 +44,23 @@ ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
+	Alignment,
 	Bold,
 	Italic,
 	BlockQuote,
-	CKFinder,
-	CloudServices,
-	EasyImage,
+	Font,
 	Heading,
+	Indent,
+	IndentBlock,
+	Superscript,
+	Subscript,
+	Underline,
 	Image,
 	ImageCaption,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
-	Indent,
 	Link,
 	List,
 	MediaEmbed,
@@ -58,7 +68,9 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	SpecialCharacters,
+	SpecialCharactersEssentials,
+	Mathematics
 ];
 
 // Editor configuration.
@@ -69,6 +81,14 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
+			'alignment',
+			'FontFamily',
+			'FontSize',
+			'FontColor',
+			'FontBackgroundColor',
+			'underline',
+			'subscript',
+			'superscript',
 			'link',
 			'bulletedList',
 			'numberedList',
@@ -81,7 +101,10 @@ ClassicEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'|',
+			'specialCharacters',
+			'math'
 		]
 	},
 	image: {
@@ -93,12 +116,27 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
+		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+	},
+	textBox: {
+		toolbar: [
+			'textBoxStyle:full',
+			'textBoxStyle:alignLeft',
+			'textBoxStyle:alignCenter',
+			'textBoxStyle:alignRight'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'en',
+	link: {
+		addTargetToExternalLinks: true
+	},
+	math: {
+		engine: 'mathjax', // or katex or function. E.g. (equation, element, display) => { ... }
+		lazyLoad: undefined, // async () => { ... }, called once before rendering first equation if engine doesn't
+		// exist. After resolving promise, plugin renders equations.
+		outputType: 'span', // or script
+		forceOutputType: true, // forces output to use outputType
+		enablePreview: true // Enable preview view
+	}
 };

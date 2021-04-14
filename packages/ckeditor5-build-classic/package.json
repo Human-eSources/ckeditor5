@@ -1,5 +1,5 @@
 {
-  "name": "@ckeditor/ckeditor5-build-classic",
+  "name": "@humanesources.com/ckeditor5-build-classic",
   "version": "27.0.0",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
@@ -24,6 +24,10 @@
   "files": [
     "build"
   ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@ckeditor/ckeditor5-adapter-ckfinder": "^27.0.0",
     "@ckeditor/ckeditor5-autoformat": "^27.0.0",
@@ -42,8 +46,12 @@
     "@ckeditor/ckeditor5-media-embed": "^27.0.0",
     "@ckeditor/ckeditor5-paragraph": "^27.0.0",
     "@ckeditor/ckeditor5-paste-from-office": "^27.0.0",
+    "@ckeditor/ckeditor5-special-characters": "^27.0.0",
     "@ckeditor/ckeditor5-table": "^27.0.0",
-    "@ckeditor/ckeditor5-typing": "^27.0.0"
+    "@ckeditor/ckeditor5-theme-lark": "^27.0.0",
+    "@ckeditor/ckeditor5-typing": "^27.0.0",
+    "@ckeditor/ckeditor5-widget": "^27.0.0",
+    "ckeditor5-math": "^27.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^27.0.0",

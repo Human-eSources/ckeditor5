@@ -27,10 +27,12 @@
 </div>
 
 <script src="../build/ckeditor.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-inspector@2.2.2/build/inspector.js"></script>
 <script>
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
+      CKEditorInspector.attach( editor );
 		} )
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );
