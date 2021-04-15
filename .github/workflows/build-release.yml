@@ -80,6 +80,7 @@ jobs:
 
       - name: Bump version and commit
         run: yarn version --patch --message "Release %s"
+        working-directory: packages/ckeditor5-build-classic
 
       - name: Git push
         run: |

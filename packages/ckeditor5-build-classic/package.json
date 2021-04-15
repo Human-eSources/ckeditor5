@@ -78,7 +78,6 @@
     "directory": "packages/ckeditor5-build-classic"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "preversion": "yarn build"
+    "build": "webpack --mode production"
   }
 }
