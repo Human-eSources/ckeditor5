@@ -37,6 +37,21 @@ import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specia
 import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
 import Mathematics from 'ckeditor5-math/src/math';
 
+// Trial new features
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
+import ImageResizeHandles from '@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
+import ListStyle from '@ckeditor/ckeditor5-list/src/liststyle';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TextPartLanguage from '@ckeditor/ckeditor5-language/src/textpartlanguage';
+import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -70,7 +85,21 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	SpecialCharacters,
 	SpecialCharactersEssentials,
-	Mathematics
+	Mathematics,
+	// Trialing new features
+	Code,
+	CodeBlock,
+	Highlight,
+	HorizontalLine,
+	HtmlEmbed,
+	ImageResizeHandles,
+	LinkImage,
+	ListStyle,
+	TableCellProperties,
+	TableProperties,
+	TextPartLanguage,
+	TextTransformation,
+	TodoList
 ];
 
 // Editor configuration.
@@ -104,19 +133,44 @@ ClassicEditor.defaultConfig = {
 			'redo',
 			'|',
 			'specialCharacters',
-			'math'
+			'math',
+			// Trial new features
+			'textPartLanguage',
+			'|',
+			'highlight:yellowMarker', 'highlight:greenMarker', 'highlight:pinkMarker',
+			'highlight:greenPen', 'highlight:redPen', 'removeHighlight',
+			'|',
+			'horizontalLine',
+			'|',
+			'strikethrough',
+			'|',
+			'todolist',
+			'|',
+			'code',
+			'codeBlock',
+			'|',
+			'htmlEmbed'
 		]
+	},
+	htmlEmbed: {
+		showPreviews: true
 	},
 	image: {
 		toolbar: [
 			'imageStyle:full',
 			'imageStyle:side',
 			'|',
-			'imageTextAlternative'
+			'imageTextAlternative',
+			'|',
+			'linkImage',
+			'resizeImage'
 		]
 	},
 	table: {
-		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+		contentToolbar: [
+			'tableColumn', 'tableRow', 'mergeTableCells',
+			'tableProperties', 'tableCellProperties'
+		]
 	},
 	textBox: {
 		toolbar: [
